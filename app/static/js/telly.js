@@ -47,7 +47,7 @@ function formatOptions(value, row, index) {
             case "040":
                 return "P/N";
             case "042":
-                return "N/P";
+                return "P/N";
             default:
                 return "";
         }
