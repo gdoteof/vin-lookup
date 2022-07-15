@@ -29,8 +29,8 @@ def update_cars():
 @sched.scheduled_job('cron', hour='6')
 def update_missing_cars():
     try:
-        start = int(os.getenv("MISSING_START", 64324 ))
-        limit = int(os.getenv("MISSING_LIMIT", 1000))
+        start = int(os.getenv("MISSING_START", 65175 ))
+        limit = int(os.getenv("MISSING_LIMIT", 1500))
         print(f'searching missing from {start} limit {limit}')
         config_name = os.getenv('FLASK_CONFIG')
         app = create_app(config_name)
