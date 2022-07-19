@@ -8,7 +8,7 @@ sched = BlockingScheduler()
 
 
 #@sched.scheduled_job('interval', minutes=5)
-@sched.scheduled_job('cron', hour='6')
+@sched.scheduled_job('cron', hour='8')
 def update_cars():
     print("Starting scraper")
     try:

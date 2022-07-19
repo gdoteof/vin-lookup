@@ -57,7 +57,7 @@ function formatOptions(value, row, index) {
             case "010": return "STD";
             case "012":
                 var model = row.car_model;
-                if (["J4242", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
+                if (["J44442", "J4242", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
                     return "MAH";
                 }
                 else if (["J4452", "J4472", "J4482", "J44A2", "J44B2"].indexOf(model) >= 0) {
@@ -70,7 +70,7 @@ function formatOptions(value, row, index) {
                 if (["J4262", "J4462", "J4492"].indexOf(model) >= 0) {
                     return "TOW";
                 }
-                else if (model == "J4242") {
+                else if (["J44442", "J4242"].indexOf(model) >= 0) {
                     return "CAP";
                 }
                 else if (model == "J4232") {
@@ -78,7 +78,7 @@ function formatOptions(value, row, index) {
                 }
             case "017":
                 var model = row.car_model;
-                if (["J4262", "J4462", "J4492"].indexOf(model) >= 0) {
+                if (["J44442", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
                     return "TOW/MAH";
                 }
                 else if (model == "J4242") {
