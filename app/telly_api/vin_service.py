@@ -6,7 +6,7 @@ from app.telly_api import repository, vin_lookup, vin_generator
 from result import Ok, Err
 
 # Check next 200 possible vins (for international vins that won't be returned
-RETRY_COUNT = 200
+RETRY_COUNT = 2000
 
 
 def find_missing_cars(start=0, limit=20):
@@ -49,8 +49,6 @@ def get_next_car(last_vin):
         next_vins = vin_generator.get_next_vin(last_vin)
         result = __find_vin__(next_vins)
         if result.is_ok():
-            time.sleep(5)
-            print("sleeping 5")
             return result
 
         last_vin = next_vins[0]
@@ -60,7 +58,6 @@ def get_next_car(last_vin):
 
 
 def scrape_vin(vin):
-    time.sleep(5)
     car, dealer, car_model = vin_lookup.scrape_vin(vin)
     repository.create_dealer(dealer)
     repository.create_car_model(car_model)
@@ -73,11 +70,11 @@ def __find_vin__(next_vins):
         print(f"trying {vin_number}")
         try:
             next_car = scrape_vin(vin_number)
-            time.sleep(5)
+            time.sleep(2)
             print(f"found {next_car.vin}")
             return Ok(next_car)
         except PdfReadError as e:
-            time.sleep(5)
+            time.sleep(2)
             print("not found")
     return Err("No results for vin")
 

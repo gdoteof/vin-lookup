@@ -22,8 +22,6 @@ def dump_pdf(vin):
 @telly_api.route("/api/<vin>", methods=["GET"])
 def add_car(vin):
     car = vin_service.scrape_vin(vin)
-    time.sleep(5)
-    print("sleeping 5")
     result = car_schema.dump(car)
 
     return jsonify(result)

@@ -126,5 +126,5 @@ def __get_cars_from_db__():
 
 @cache.memoize()
 def __get_cars_recent_from_db__():
-    start_date = datetime.utcnow() + timedelta(days=-60)
+    start_date = datetime.utcnow() + timedelta(days=-30)
     return Car.query.filter(Car.created_date >= start_date).order_by(Car.created_date.desc()).all()

@@ -57,7 +57,7 @@ function formatOptions(value, row, index) {
             case "010": return "STD";
             case "012":
                 var model = row.car_model;
-                if (["J44442", "J4242", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
+                if (["J4442", "J4242", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
                     return "MAH";
                 }
                 else if (["J4452", "J4472", "J4482", "J44A2", "J44B2"].indexOf(model) >= 0) {
@@ -70,15 +70,15 @@ function formatOptions(value, row, index) {
                 if (["J4262", "J4462", "J4492"].indexOf(model) >= 0) {
                     return "TOW";
                 }
-                else if (["J44442", "J4242"].indexOf(model) >= 0) {
+                else if (["J4442", "J4242"].indexOf(model) >= 0) {
                     return "CAP";
                 }
-                else if (model == "J4232") {
+                else if (["J4232", "J4432"].indexOf(model) >= 0) {
                     return "ROJ";
                 }
             case "017":
                 var model = row.car_model;
-                if (["J44442", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
+                if (["J4442", "J4262", "J4462", "J4492"].indexOf(model) >= 0) {
                     return "TOW/MAH";
                 }
                 else if (model == "J4242") {
@@ -100,9 +100,12 @@ function formatModel(value, row, index) {
             case "J4232": return "S V6 FWD";
             case "J4242": return "EX V6 FWD";
             case "J4262": return "SX V6 FWD";
-            case "J4452": return "X-EX V6 AWD";
+	    case "J4422": return "LX V6 AWD";
+	    case "J4432": return "S V6 AWD";
+	    case "J4442": return "EX V6 AWD";
+            case "J4452": return "EX-X V6 AWD";
             case "J4462": return "SX V6 AWD";
-            case "J4472": return "X-SX V6 AWD";
+            case "J4472": return "SX-X V6 AWD";
             case "J4482": return "XP-SX V6 AWD";
             case "J4492": return "SX-P V6 AWD";
             case "J44A2": return "X-SX-P V6 AWD";
@@ -129,7 +132,7 @@ function formatDate(value, row, index){
 
 function formatInteriorColor(value, row, index){
     switch (row.opt_code){
-        case "012":
+        //case "012":
         case "017":
 	case "032":
 	case "037":

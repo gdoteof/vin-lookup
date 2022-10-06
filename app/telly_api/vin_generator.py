@@ -17,8 +17,8 @@ VIN_DIGIT_VALUES = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H':
                   '7': 7, '8': 8, '9': 9, '0': 0}
 #VIN_YEAR = 'L'
 #VIN_YEAR = 'M'
-VIN_YEAR = 'N'
-#VIN_YEAR = 'O'
+#VIN_YEAR = 'N'
+VIN_YEAR = 'P'
 
 class VinYear:
     def __init__(self, first8, year):
@@ -79,7 +79,7 @@ def get_possible_vins_starts():
     models = [2,3,5,6]
     drives = ['D', '4']
 
-    combos = [f'5XYP{model}{drive}HC' for (model,drive) in itertools.product(models, drives)]
+    combos = [f'5XYP{model}{drive}GC' for (model,drive) in itertools.product(models, drives)]
 
     return combos
 
