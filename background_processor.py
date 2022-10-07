@@ -8,8 +8,8 @@ sched = BlockingScheduler()
 
 
 #@sched.scheduled_job('interval', minutes=5)
-@sched.scheduled_job('cron', hour='20', minute='21')
-#@sched.scheduled_job('cron', hour='05', minute='30')
+#@sched.scheduled_job('cron', hour='20', minute='21')
+@sched.scheduled_job('cron', hour='05', minute='30')
 def update_cars():
     print("Starting scraper")
     try:
@@ -17,7 +17,7 @@ def update_cars():
         if scraping_enabled != 'True':
             print("scraping not enabled")
         else:
-            batch_size = int(os.getenv("SCRAPER_BATCH_SIZE", 6000))
+            batch_size = int(os.getenv("SCRAPER_BATCH_SIZE", 1000))
             print(f"Scraping with batch size {batch_size}")
             config_name = os.getenv('FLASK_CONFIG')
             app = create_app(config_name)

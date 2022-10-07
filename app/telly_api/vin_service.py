@@ -6,7 +6,7 @@ from app.telly_api import repository, vin_lookup, vin_generator
 from result import Ok, Err
 
 # Check next 200 possible vins (for international vins that won't be returned
-RETRY_COUNT = 2000
+RETRY_COUNT = 200
 
 
 def find_missing_cars(start=0, limit=20):
