@@ -2,8 +2,12 @@ function formatDealer(value, row, index) {
     return "<a href='/dealer/" + value + "'>" + value + "</a>";
 }
 
+//function formatVin(value, row, index) {
+//	return "<a href='https://www.kia.com/us/en/inventory/vehicle-details?vin=" + value + "' target='_blank' rel='noopener noreferrer'>" + value + "</a>";
+//}
+
 function formatVin(value, row, index) {
-    return "<a href='https://ev-scraper.herokuapp.com/kia/windowsticker?vin=" + value + "' target='_blank' rel='noopener noreferrer'>" + value + "</a>";
+	return value;
 }
 
 function formatOptions(value, row, index) {

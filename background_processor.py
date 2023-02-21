@@ -7,8 +7,7 @@ from datetime import datetime
 sched = BlockingScheduler()
 
 
-#@sched.scheduled_job('interval', minutes=5)
-#@sched.scheduled_job('cron', hour='20', minute='21')
+#@sched.scheduled_job('cron', hour='07', minute='00')
 @sched.scheduled_job('cron', hour='05', minute='30')
 def update_cars():
     print("Starting scraper")
@@ -30,8 +29,8 @@ def update_cars():
 @sched.scheduled_job('cron', hour='23')
 def update_missing_cars():
     try:
-        start = int(os.getenv("MISSING_START", 66907 ))
-        limit = int(os.getenv("MISSING_LIMIT", 3000))
+        start = int(os.getenv("MISSING_START", 74812 ))
+        limit = int(os.getenv("MISSING_LIMIT", 1000))
         print(f'searching missing from {start} limit {limit}')
         config_name = os.getenv('FLASK_CONFIG')
         app = create_app(config_name)
