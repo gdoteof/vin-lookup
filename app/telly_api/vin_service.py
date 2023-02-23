@@ -1,6 +1,5 @@
 import datetime
 import time
-from PyPDF2.utils import PdfReadError
 
 from app.telly_api import repository, vin_lookup, vin_generator
 from result import Ok, Err
@@ -73,7 +72,7 @@ def __find_vin__(next_vins):
             time.sleep(2)
             print(f"found {next_car.vin}")
             return Ok(next_car)
-        except PdfReadError as e:
+        except :
             time.sleep(2)
             print("not found")
     return Err("No results for vin")
